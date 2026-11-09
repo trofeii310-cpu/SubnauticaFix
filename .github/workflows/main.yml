@@ -10,8 +10,10 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ProcursusTeam/setup-theos@main
+      - uses: beerpiss/theos-action@v1
       - name: Build package
+        env:
+          THEOS: ${{ github.workspace }}/theos
         run: make package FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=rootless
       - name: Upload artifact
         uses: actions/upload-artifact@v4
