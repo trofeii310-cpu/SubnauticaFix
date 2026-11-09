@@ -1,0 +1,9 @@
+Package: com.trofeii.subnauticafix
+Name: SubnauticaFix
+Version: 1.0.0
+Architecture: iphoneos-arm64
+Description: Fix Game Center black screen in Subnautica
+Maintainer: trofeii
+Author: trofeii
+Section: Tweaks
+Depends: mobilesubstrate
