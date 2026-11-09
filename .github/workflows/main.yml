@@ -1,0 +1,20 @@
+name: Build Tweak
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ProcursusTeam/setup-theos@main
+      - name: Build package
+        run: make package FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=rootless
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: SubnauticaFix-Deb
+          path: packages/*.deb
